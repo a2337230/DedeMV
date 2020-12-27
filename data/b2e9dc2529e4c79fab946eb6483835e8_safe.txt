@@ -1,0 +1,1 @@
+127.0.0.1||/tags.php?/13/||SELECT t.aid,t.tag,a.id,a.title,a.litpic FROM dede_taglist as t left join dede_archives a on t.aid = a.id where t.tid=~@me~ LIMIT 0 , 10||unusual character

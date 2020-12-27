@@ -1,0 +1,48 @@
+<header class="header">
+  <!-- logo -->
+  <div class="header-container">
+    <div class="logo">
+      <div class="goback">
+        <a href="javascript:history.back(-1)">
+          <i class="iconfont icon-fanhui"></i>
+        </a>
+      </div>
+      <img src="{dede:global.cfg_basehost/}/common/header/logo.png" alt="{dede:global.cfg_webname/}">
+      <div class="search-icon">
+        <i class="iconfont icon-sousuo"></i>
+      </div>
+      <div class="menu">
+        <i class="iconfont icon-sort"></i>
+      </div>
+      <h1>{dede:global.cfg_webname/}</h1>
+    </div>
+    <ul class="nav">
+      <li {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='current'":@me="";{/dede:field}><a href="{dede:global.cfg_basehost/}">首页</a></li>
+      {dede:channel type='top' row='6' currentstyle="<li class='current'><a  href='~typelink~' >~typename~</a> </li>" }
+      <li><a href="[field:typelink/]">[field:typename/]</a></li>
+      {/dede:channel}
+    </ul>
+    <div class="search">
+      <form action="/plus/search.php" name="formsearch">
+        <input type="text" placeholder="请输入你最感兴趣的内容..." name="q">
+        <input type="hidden" value="titlekeyword" name="searchtype" >
+        <button type="submit">搜索</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    let flg = false;
+    let nav = document.querySelector('.nav');
+    let search = document.querySelector('.header-container')
+    document.querySelector('.menu').onclick = function () {
+      search.classList.remove('searchShow');
+      flg ? nav.style.display = 'none' : nav.style.display = 'block';
+      flg = !flg;
+    }
+    document.querySelector('.search-icon').onclick = function () {
+      flg = false;
+      nav.style.display = 'none';
+      search.classList.toggle('searchShow');
+    }
+  </script>
+</header>

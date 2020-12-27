@@ -1,0 +1,11 @@
+{dede:pagestyle maxwidth='840' pagepicnum='12' ddmaxwidth='225' row='3' col='4' value='2'/}
+{dede:img ddimg='/uploads/1805/1-1P523155120.jpg' text='还记得母校的小天桥吗' width='600' height='871'} /uploads/1805/1-1P523155120.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155142.jpg' text='怀旧回归母校的阶梯教室' width='880' height='587'} /uploads/1805/1-1P523155142.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155202.jpg' text='妹子们大学的理想是谈一次恋爱吗' width='600' height='814'} /uploads/1805/1-1P523155202.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155244.jpg' text='大学的校服就是比高中开放' width='600' height='829'} /uploads/1805/1-1P523155244.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155318.jpg' text='很多妹子上课的时候都想睡觉' width='600' height='850'} /uploads/1805/1-1P523155318.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155352.jpg' text='迎着阳光仍然难当妹子的姿色' width='600' height='837'} /uploads/1805/1-1P523155352.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155428.jpg' text='大学校花清纯唯美生活照' width='600' height='826'} /uploads/1805/1-1P523155428.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155454.jpg' text='妹子每次下课都是孤单一人' width='600' height='829'} /uploads/1805/1-1P523155454.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155515.jpg' text='休息的时候好像有师哥在偷看' width='600' height='836'} /uploads/1805/1-1P523155515.jpg {/dede:img}
+{dede:img ddimg='/uploads/1805/1-1P523155543.jpg' text='大学校园太大妹子还要骑自行车回寝室' width='600' height='866'} /uploads/1805/1-1P523155543.jpg {/dede:img}

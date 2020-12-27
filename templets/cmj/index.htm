@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta name="force-rendering" content="webkit"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <title>{dede:global.cfg_webname/}</title>
+  <meta name="keywords" content="{dede:global.cfg_keywords/}">
+  <meta name="description" content="{dede:global.cfg_description/}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+  <link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/base.css">
+  <link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/style.css">
+  <link rel="stylesheet" media="screen and (max-device-width: 480px)" href="{dede:global.cfg_basehost/}/style/css/style-m.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css"> -->
+  <link href="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.2/css/swiper.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1576232_ljmespepeao.css">
+  <link rel="canonical" href="{dede:global.cfg_basehost/}"/>
+</head>
+<body>
+  {dede:include filename="head.htm"/}
+  <div class="wrap">
+    <!-- banner -->
+    <div class="banner">
+      <!-- 轮播图 -->
+      <div class="banner-left">
+        <div class="swiper-container"> 
+          <ul class="swiper-wrapper">
+              {dede:arclist titlelen='45' row='10' flag="f" orderby="id"}
+            <li class="swiper-slide">
+              <a href="[field:arcurl/]">
+                <img src="[field:litpic/]" alt="[field:title/]">
+                <p class="banner-button" href="[field:arcurl/]">[field:title/]</p>
+              </a>
+            </li>
+            {/dede:arclist}
+          </ul>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev swiper-button-white"></div>
+          <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+      </div>
+      <div class="banner-right">
+        <div class="recommend">
+          <h2 class="rec-title">热门推荐</h2>
+          <ul class="rec-menu">
+            {dede:arclist titlelen='45' row='9' typeid='all' orderby="rand"}
+              <li [field:global name='autoindex'runphp='yes']if(@me==1){@me='class="current rec-item"';}else{@me='class=rec-item';}[/field:global]>
+                <span class="rec-num">[field:global runphp='yes' name=autoindex][/field:global].</span>
+                <div class="item-container">
+                  <a href="[field:arcurl/]" class="rec-left">
+                    <img src="[field:litpic/]" alt="[field:title/]">
+                  </a>
+                  <div class="rec-right">
+                    <h3><a href="[field:arcurl/]">[field:title/]</a></h3>
+                    <div class="rec-info">
+                      <a href="[field:typeurl/]"><i class="iconfont icon-zixunlanmu"></i>[field:typename/]</a>
+                      <span><i class="iconfont icon-dianjiliang"></i>[field:click/]</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {/dede:arclist}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 最新推荐 -->
+    <div class="newest">
+      <h2>今日更新</h2>
+      <div class="newset-container">
+        <ul class="newset-menu">
+          {dede:arclist titlelen='45' row='10' typeid='all' orderby="rand"}
+            <li class="newset-slide">
+              <a class="m-pic" href="[field:arcurl/]" title="[field:title /]"><img class="scrollLoading" data-url="[field:litpic/]" width="225px" height="300px" src="[field:litpic/]" alt="[field:title/]"></a>
+              <h3>[field:title /]</h3>
+            </li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <!-- 栏目分区 -->
+    <div class="column">
+      <h2 class="column-title">{dede:type typeid='2'}[field:typename/]<a href="[field:typelink/]">更多></a> {/dede:type}</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='55' row='10' orderby='rand' typeid='2'}
+        <li>
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <h3>[field:title /]</h3>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="column">
+      <h2 class="column-title">{dede:type typeid='9'}[field:typename/]<a href="[field:typelink/]">更多></a> {/dede:type}</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='55' row='10' orderby='rand' typeid='9'}
+        <li>
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <h3>[field:title /]</h3>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="column">
+      <h2 class="column-title">{dede:type typeid='4'}[field:typename/]<a href="[field:typelink/]">更多></a> {/dede:type}</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='55' row='10' orderby='rand' typeid='4'}
+        <li>
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <h3>[field:title /]</h3>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="column">
+      <h2 class="column-title">{dede:type typeid='10'}[field:typename/]<a href="[field:typelink/]">更多></a> {/dede:type}</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='55' row='10' orderby='rand' typeid='10'}
+        <li>
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <h3>[field:title /]</h3>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="column">
+      <h2 class="column-title">{dede:type typeid='11'}[field:typename/]<a href="[field:typelink/]">更多></a> {/dede:type}</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='55' row='10' orderby='rand' typeid='11'}
+        <li>
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <h3>[field:title /]</h3>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="column">
+      <h2 class="column-title">{dede:type typeid='12'}[field:typename/]<a href="[field:typelink/]">更多></a> {/dede:type}</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='55' row='10' orderby='rand' typeid='12'}
+        <li>
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <h3>[field:title /]</h3>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+  {dede:include filename="foot.htm"/}
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.2/js/swiper.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+  <script src="{dede:global.cfg_basehost/}/style/js/style.js"></script>
+  <!-- <script src="{dede:global.cfg_basehost/}/live2d/js/autoload.js"></script> -->
+</body>
+</html>

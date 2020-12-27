@@ -1,0 +1,7 @@
+INSERT INTO `dede_pinglog` VALUES('362','1527773332','0');
+INSERT INTO `dede_pinglog` VALUES('363','1527943177','0');
+INSERT INTO `dede_pinglog` VALUES('364','1528034352','0');
+INSERT INTO `dede_pinglog` VALUES('365','1528076137','0');
+INSERT INTO `dede_pinglog` VALUES('366','1528079042','0');
+INSERT INTO `dede_pinglog` VALUES('367','1528091777','0');
+INSERT INTO `dede_pinglog` VALUES('368','1528094517','0');

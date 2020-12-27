@@ -1,0 +1,1 @@
+<li><div class="ha-name"> <a href="[field:arcurl/]" title="[field:title /]"  target="_blank">[field:title /]</a></div></li>

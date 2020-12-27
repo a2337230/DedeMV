@@ -1,0 +1,9 @@
+{dede:pagestyle maxwidth='840' pagepicnum='12' ddmaxwidth='225' row='3' col='4' value='2'/}
+{dede:img ddimg='/uploads/1804/1-1P42Q03222.jpg' text='靓丽校花' width='700' height='1050'} /uploads/1804/1-1P42Q03222.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P42Q03242.jpg' text='校花生活照' width='700' height='441'} /uploads/1804/1-1P42Q03242.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P42Q03300.jpg' text='爱上摄影的妹子' width='700' height='1050'} /uploads/1804/1-1P42Q03300.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P42Q03312.jpg' text='90后素颜妹纸' width='700' height='444'} /uploads/1804/1-1P42Q03312.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P42Q03336.jpg' text='可爱女孩' width='700' height='1050'} /uploads/1804/1-1P42Q03336.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P42Q03405.jpg' text='唯美摄影' width='700' height='423'} /uploads/1804/1-1P42Q03405.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P42Q03418.jpg' text='可乐诱惑' width='700' height='1050'} /uploads/1804/1-1P42Q03418.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P42Q03510.jpg' text='青苹果长腿女孩' width='700' height='443'} /uploads/1804/1-1P42Q03510.jpg {/dede:img}

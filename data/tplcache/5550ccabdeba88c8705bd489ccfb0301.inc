@@ -1,0 +1,1 @@
+<li class="my-slide"><img src="[field:imgsrc/]" alt='[field:text/]'/></a></li>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>标签云_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+<link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/base.css">
+<link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/style.css">
+<link rel="stylesheet" media="screen and (max-device-width: 480px)" href="{dede:global.cfg_basehost/}/style/css/style-m.css" type="text/css" />
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1576232_ljmespepeao.css">
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="wrap">
+	<div class="breadcrumb">
+		<span>当前位置</span>
+		<a href="{dede:global.cfg_cmsurl/}/">首页</a>
+		<a href='{dede:global.cfg_cmsurl/}/tags.html'>TAG标签云</a>
+	</div>
+
+	<div class="tags_list">
+		<h2>最新标签</h2>
+		<ul class="tag-item">
+			{dede:tag row='60' sort='new'}
+				<li>
+					<a href="[field:global.cfg_basehost/][field:id function='nic_tag_url(@me)' /]">[field:tag /] </a>
+				</li>
+			{/dede:tag}
+		</ul>
+	</div>
+	<div class="tags_list">
+		<h2>当月热门标签</h2>
+		<ul class="tag-item">
+			{dede:tag row='60' sort='month'}
+				<li>
+					<a href="[field:global.cfg_basehost/][field:id function='nic_tag_url(@me)' /]">[field:tag /] </a>
+				</li>
+			{/dede:tag}
+		</ul>
+	</div>
+	<div class="tags_list">
+		<h2>推荐标签</h2>
+		<ul class="tag-item">
+			{dede:tag row='60' sort='rand'}
+				<li>
+					<a href="[field:global.cfg_basehost/][field:id function='nic_tag_url(@me)' /]">[field:tag /] </a>
+				</li>
+			{/dede:tag}
+		</ul>
+	</div>
+	<div class="column">
+		<h2 class="column-title">猜你喜欢</h2>
+		<ul class="colun-menu">
+			{dede:arclist titlelen='45' row='20' typeid='all' orderby="rand"}
+			<li class="list">
+				<a href="[field:arcurl/]" title="[field:title/]">
+					<img src="[field:litpic/]" alt="[field:shorttitle/]">
+				</a>
+				<div class="colum-info">
+					<div class="colun-date">
+						<p><i class="iconfont icon-shijian"></i>[field:pubdate function="GetDateMK(@me)"/]</p>
+						<p><i class="iconfont icon-dianjiliang"></i>[field:id function="Getimgnum(@me)"/]张</p>
+					</div>
+					<h3><a href="[field:arcurl/]" title="[field:title /]">[field:title /]</a></h3>
+					<p class="tabs"><span>标签：</span>[field:id function='nic_arc_tag_link(@me)'/]</p>
+				</div>
+			</li>
+			{/dede:arclist}
+		</ul>
+	</div>
+</div>
+{dede:include filename="foot.htm"/}
+<script src="{dede:global.cfg_basehost/}/style/js/tag_index.js"></script>
+</body>
+</html>

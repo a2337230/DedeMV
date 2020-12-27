@@ -1,0 +1,1 @@
+<li><a href="javascript:ChangePic('[field:imgsrc/]', '#bigpicimg');" title="[field:text/]" rel="facebox"><img src="[field:imgsrc/]"/></a></li>

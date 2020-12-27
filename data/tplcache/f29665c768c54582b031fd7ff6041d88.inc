@@ -1,0 +1,1 @@
+<li class="xtaber-item"><a href="[field:arcurl/]" title="[field:title /]"><img src="[field:litpic/]" alt="[field:title /]" width="860" height="370"></a></li>

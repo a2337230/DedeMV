@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <title>看美女图库_标签云_{dede:sql sql="select * from dede_tagindex where id=~title~"}[field:tag/]{/dede:sql}</title>
+  <meta name="keywords" content="{dede:field.keywords/}" />
+  <meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+  <link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/base.css">
+  <link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/style.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1576232_voprjnf33t.css">
+  <script src="{dede:global.cfg_basehost/}/style/js/tag.js"></script>
+</head>
+<body>
+  {dede:include filename="head.htm"/}
+  <div class="wrap">
+    <div class="breadcrumb">
+      <span>当前位置</span> {dede:field name='position'/}<a href="#">标签云</a><a>{dede:sql sql="select * from dede_tagindex where id=~title~"}[field:tag/]{/dede:sql}</a>
+    </div>
+    <div class="tag-des">
+      <div class="left">
+        <h3>{dede:sql sql="select * from dede_tagindex where id=~title~"}[field:tag/]{/dede:sql}简介</h3>
+        <p>{dede:sql sql="select * from dede_tagindex where id=~title~"}[field:tagms/]{/dede:sql}</p>
+      </div>
+      <div class="right">
+        {dede:tag row='10' sort='rand' getall='1'}<a href='[field:link/]'>[field:tag /]</a>{/dede:tag}
+      </div>
+    </div>
+    <div class="column">
+      <h2 class="column-title">{dede:sql sql="select * from dede_tagindex where id=~title~"}[field:tag/]{/dede:sql}</h2>
+      <ul class="colun-menu">
+        {dede:sql sql="SELECT t.aid,t.tag,a.id,a.title,a.litpic FROM dede_taglist as t left join dede_archives a on t.aid = a.id where t.tid=~tag~ LIMIT 0 , 10"}
+        <li>
+          <a href="[field:id runphp='yes'] $id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];[/field:id]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <h3><a href="[field:arcurl/]" title="[field:title /]">[field:title /]</a></h3>
+        </li>
+        {/dede:sql}
+      </ul>
+    </div>
+    <div class="column">
+      <h2 class="column-title">猜你喜欢</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='45' row='20' typeid='all' orderby="rand"}
+        <li class="list">
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <div class="colum-info">
+            <div class="colun-date">
+              <p><i class="iconfont icon-shijian"></i>[field:pubdate function="GetDateMK(@me)"/]</p>
+              <p><i class="iconfont icon-dianjiliang"></i>[field:id function="Getimgnum(@me)"/]张</p>
+            </div>
+            <h3><a href="[field:arcurl/]" title="[field:title /]">[field:title /]</a></h3>
+            <p class="tabs"><span>标签：</span>[field:id function="GetTags(@me)"/]</p>
+          </div>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+  {dede:include filename="foot.htm"/}
+</body>
+</html>

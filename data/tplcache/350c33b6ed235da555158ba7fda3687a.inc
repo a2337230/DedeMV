@@ -1,0 +1,12 @@
+{dede:pagestyle maxwidth='840' pagepicnum='12' ddmaxwidth='225' row='3' col='4' value='2'/}
+{dede:img ddimg='/uploads/1804/1-1P425205F5.jpg' text='纯洁少女登场' width='700' height='1050'} /uploads/1804/1-1P425205F5.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425205S4.jpg' text='少女入场准备' width='700' height='1050'} /uploads/1804/1-1P425205S4.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425205Z1.jpg' text='少女准备完毕' width='700' height='1050'} /uploads/1804/1-1P425205Z1.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425205927.jpg' text='战斗女神' width='700' height='1050'} /uploads/1804/1-1P425205927.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425210010.jpg' text='霸气少女' width='700' height='1050'} /uploads/1804/1-1P425210010.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425210057.jpg' text='美臀少女' width='700' height='1050'} /uploads/1804/1-1P425210057.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425210118.jpg' text='清新美女' width='700' height='1050'} /uploads/1804/1-1P425210118.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425210149.jpg' text='遭遇咸猪手' width='700' height='1050'} /uploads/1804/1-1P425210149.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425210218.jpg' text='女神霸气反击' width='700' height='1050'} /uploads/1804/1-1P425210218.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425210236.jpg' text='女神绝招' width='700' height='1050'} /uploads/1804/1-1P425210236.jpg {/dede:img}
+{dede:img ddimg='/uploads/1804/1-1P425210251.jpg' text='女神胜利' width='1800' height='1100'} /uploads/1804/1-1P425210251.jpg {/dede:img}

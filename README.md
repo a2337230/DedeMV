@@ -1,2 +1,2 @@
-# DedeMV
-CMS练手项目
+# dedecmsMV
+dede模板

@@ -1,0 +1,3 @@
+<li> <a href="[field:arcurl/]" title="[field:title /]"  target="_blank" class="dl-pic"><img class="scrollLoading" data-url="[field:litpic/]" width="197px" height="143px" src="[field:litpic/]" alt="[field:title /]"></a>
+            <div class="dl-name"> <span class="fr">[field:id function="Getimgnum(@me)"/]张</span><a href="[field:arcurl/]" title="[field:title /]" target="_blank">[field:title /]</a> </div>
+          </li>

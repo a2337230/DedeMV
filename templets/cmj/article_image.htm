@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+  <title>{dede:field name="title"/}_{dede:field.typename/}_看美女图库</title>
+  <meta name="keywords" content="{dede:field.keywords/}" />
+  <meta name="description" content="{dede:field.description/}" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="renderer" content="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit" />
+  <link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/base.css">
+  <link rel="stylesheet" href="{dede:global.cfg_basehost/}/style/css/style.css">
+  <link rel="stylesheet" media="screen and (max-device-width: 480px)"
+    href="{dede:global.cfg_basehost/}/style/css/style-m.css" type="text/css" />
+  <link href="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.2/css/swiper.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1576232_ljmespepeao.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.2/js/swiper.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jszip/3.3.0/jszip.min.js"></script>
+</head>
+
+<body style="font-size: 16px;">
+  <script>
+    if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      view(750, 750)
+      function view(designWidth, maxWidth) {
+        var doc = document,
+          win = window,
+          docEl = doc.documentElement,
+          remStyle = document.createElement("style"),
+          tid;
+
+        function refreshRem() {
+          var width = docEl.getBoundingClientRect().width;
+          maxWidth = maxWidth || 540;
+          width > maxWidth && (width = maxWidth);
+          var rem = width * 100 / designWidth;
+          remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+        }
+
+        if (docEl.firstElementChild) {
+          docEl.firstElementChild.appendChild(remStyle);
+        } else {
+          var wrap = doc.createElement("div");
+          wrap.appendChild(remStyle);
+          doc.write(wrap.innerHTML);
+          wrap = null;
+        }
+        //要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+        refreshRem();
+
+        win.addEventListener("resize", function () {
+          clearTimeout(tid); //防止执行两次
+          tid = setTimeout(refreshRem, 300);
+        }, false);
+
+        win.addEventListener("pageshow", function (e) {
+          if (e.persisted) { // 浏览器后退的时候重新计算
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+          }
+        }, false);
+
+        if (doc.readyState === "complete") {
+          doc.body.style.fontSize = "16px";
+        } else {
+          doc.addEventListener("DOMContentLoaded", function (e) {
+            doc.body.style.fontSize = "16px";
+          }, false);
+        }
+      }
+    } 
+  </script>
+  {dede:include filename="head.htm"/}
+  <div class="wrap">
+    <div class="breadcrumb">
+      <span>当前位置</span> {dede:field name='position'/} <a href="#">{dede:field name="title"/}</a>
+    </div>
+    <div class="arcitle-container">
+      <div class="arcitle-left">
+        <h2 class="arcitle-title">{dede:field name="title"/}</h2>
+        <div class="article-info">
+          <p>更新: <span>{dede:field name='pubdate' function='GetDateMk(@me)'/}</span></p>
+          <p>图集张数：<span>{dede:field.id function="Getimgnum(@me)"'/}</span>张</p>
+          <p>支持← →键翻阅图片</p>
+        </div>
+        <div class="arcitle-des">
+          {dede:field.body/}
+          <!-- <div class="des-image">
+            <img src="http://127.0.0.1/images/saoma/63.jpg" alt="">
+          </div>
+          <div class="des-info">
+            <div class="provenance">
+              <p><span>出镜： </span> 美女</p>
+              <p><span>来源：</span> 微博</p>
+            </div>
+            <p class="synopsis"><span>图集简介：</span> 简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</p>
+            <p class="copyright">-著作权归作者本人所有- 侵权删除请联系我们</p>
+          </div> -->
+        </div>
+        <div class="btn-container">
+          <button class="prev">←上一张</button>
+          <button class="next">下一张→</button>
+          <button class="auto">自动轮播</button>
+          <button class="game">美女小游戏</button>
+          <button class="download">下载图片</button>
+          <button class="downloadAll">下载全套</button>
+        </div>
+        <div class="img-wrap">
+          <ul class="my-wrapper">
+            {dede:productimagelist}
+            <li class="my-slide"><img src="[field:imgsrc/]" alt='[field:text/]' /></a></li>
+            {/dede:productimagelist}
+          </ul>
+          <div class="swiper-button-prev swiper-button-white"></div>
+          <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+        <div class="btn-container">
+          <button class="prev">←上一张</button>
+          <button class="next">下一张→</button>
+          <button class="auto">自动轮播</button>
+          <button class="game">美女小游戏</button>
+          <button class="download">下载图片</button>
+          <button class="downloadAll">下载全套</button>
+        </div>
+        <p class="tabs"><span>标签：</span>{dede:field.id function='nic_arc_tag_link(@me)'/}</p>
+      </div>
+      <div class="article-right">
+        <div class="code">
+          <h2>关注微信公众号下载全套图集</h2>
+          <div class="code-img">
+            <img src="http://127.0.0.1/images/saoma/76.jpg" alt="美女微信公众号" class="isGirl">
+          </div>
+        </div>
+        <div class="recommend">
+          <h2 class="rec-title">热门推荐</h2>
+          <ul class="rec-menu">
+            {dede:arclist titlelen='45' row='10' typeid='all' orderby="rand"}
+            <li [field:global name='autoindex' runphp='yes' ]if(@me==1){@me='class="current rec-item"'
+              ;}else{@me='class=rec-item' ;}[/field:global]>
+              <div class="item-container">
+                <div class="rec-left">
+                  <img src="[field:litpic/]" alt="[field:title/]">
+                </div>
+                <div class="rec-right">
+                  <h3><a href="[field:arcurl/]">[field:title/]</a></h3>
+                  <div class="rec-info">
+                    <a href="[field:typeurl/]"><i class="iconfont icon-zixunlanmu"></i>[field:typename/]</a>
+                    <span><i class="iconfont icon-dianjiliang"></i>[field:click/]</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            {/dede:arclist}
+          </ul>
+        </div>
+        <div class="recommend">
+          <h2 class="rec-title">最新推荐</h2>
+          <ul class="rec-menu1">
+            {dede:arclist titlelen='45' row='10' typeid='all' orderby="rand"}
+            <li [field:global name='autoindex' runphp='yes' ]if(@me==1){@me='class="current rec-item1"'
+              ;}else{@me='class=rec-item1' ;}[/field:global]>
+              <div class="item-container">
+                <div class="rec-left">
+                  <img src="[field:litpic/]" alt="[field:title/]">
+                </div>
+                <div class="rec-right">
+                  <h3><a href="[field:arcurl/]">[field:title/]</a></h3>
+                  <div class="rec-info">
+                    <a href="[field:typeurl/]"><i class="iconfont icon-zixunlanmu"></i>[field:typename/]</a>
+                    <span><i class="iconfont icon-dianjiliang"></i>[field:click/]</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            {/dede:arclist}
+          </ul>
+        </div>
+        <!-- <div class="tags">
+          <h2>美女特征</h2>
+          <div class="tag-container">
+            {dede:tag row='40' sort='rand' getall='1'}<a href='[field:link/]'>[field:tag /]</a>{/dede:tag}
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="pren-tab">
+      <div class="pren-prev">{dede:prenext get='pre'/} </div>
+      <div class="pren-next">{dede:prenext get='next'/}</div>
+    </div>
+    <div class="column">
+      <h2 class="column-title">猜你喜欢</h2>
+      <ul class="colun-menu">
+        {dede:arclist titlelen='45' row='20' typeid='all' orderby="rand"}
+        <li class="list">
+          <a href="[field:arcurl/]" title="[field:title/]">
+            <img src="[field:litpic/]" alt="[field:shorttitle/]">
+          </a>
+          <div class="colum-info">
+            <div class="colun-date">
+              <p><i class="iconfont icon-shijian"></i>[field:pubdate function="GetDateMK(@me)"/]</p>
+              <p><i class="iconfont icon-dianjiliang"></i>[field:id function="Getimgnum(@me)"/]张</p>
+            </div>
+            <h3><a href="[field:arcurl/]" title="[field:title /]">[field:title /]</a></h3>
+            <p class="tabs"><span>标签：</span>[field:id function='nic_arc_tag_link(@me)'/]</p>
+          </div>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+  {dede:include filename="foot.htm"/}
+  <script src="{dede:global.cfg_basehost/}/style/js/arcitle.js"></script>
+  <!-- <div class="game-container" style="display: flex;">
+    <div class="btn-container">
+      <button class="btn" type="button">开始</button>
+      <div class="selectbox">
+        <button class="text">简单</button>
+        <ul class="box" style="display: none;">
+          <li>简单</li>
+          <li>入门</li>
+          <li>中等难度</li>
+          <li>高难</li>
+          <li>外星人</li>
+        </ul>
+      </div>
+      <div class="load-box"><input type="file" /><button class="upload" type="button">自定义上传</button></div>
+      <button class="master">查看原图</button>
+      <div class="btnBbox"><button class="game-close" type="button">关闭游戏</button></div>
+    </div>
+    <div class="picBox">
+      <ul class="list">
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 0px; top: 0px; background-position: 0px 0px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 180px; top: 0px; background-position: -180px 0px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 360px; top: 0px; background-position: -360px 0px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 0px; top: 240px; background-position: 0px -240px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 180px; top: 240px; background-position: -180px -240px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 360px; top: 240px; background-position: -360px -240px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 0px; top: 480px; background-position: 0px -480px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 180px; top: 480px; background-position: -180px -480px; width: 180px; height: 240px;">
+        </li>
+        <li
+          style="background-image: url(&quot;http://192.168.0.105/uploads/1806/1-1P604134K3.jpg&quot;); left: 360px; top: 480px; background-position: -360px -480px; width: 180px; height: 240px;">
+        </li>
+      </ul>
+    </div>
+  </div> -->
+</body>
+
+</html>

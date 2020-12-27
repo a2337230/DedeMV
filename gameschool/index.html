@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>美女消消乐_圣少女系列_欲望学园_妹纸游戏_看美女图</title>
+<meta name="keywords" content="美女学院,美女消消乐">
+<meta name="description" content="美女消消乐怎么玩呢?面对一款如此好玩的游戏却不知道怎么玩,是不是有如欲火焚身一般呢?>>>点击进入">
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/jwe.css" />
+<link rel="stylesheet" href="css/gStar.css" />
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/method.js"></script>
+<script type="text/javascript" src="js/gStar.js"></script>
+<script src="js/ui/jquery.ui.core.js"></script>
+<script src="js/ui/jquery.ui.widget.js"></script>
+<script src="js/ui/jquery.ui.mouse.js"></script>
+<script src="js/ui/jquery.ui.draggable.js"></script>
+<script>
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//预置游戏变量：
+var _gameTitle = "~潜能越多解锁的功能越多哦~";
+
+ //x图的长宽比例:
+var _BLV_XPIC1 = (16/9); 
+
+var _rowNum= 6;  //游戏盘行数
+var _colNum = 6;	//游戏盘列数
+
+var _xPicNum = 15; //win图的数量
+var _xPicModel = "win/gmCG/###.jpg"; //win图模板
+var _xPicBeginNum=1; //win图起始编号（必须是数值型整型）
+
+var _extName = "png"; 	//默认char扩展名
+var _bgExtName = "jpg"; //默认bg扩展名
+
+var _UniTypeNumberMax = 7;  //总共最大的棋子种类数
+var _UniTypeNumber = 6;  //可用的棋子的种类数
+
+var _oneSexyPicCost = -50; //打开一个xPic所需的花费
+
+var _fullGameTime = 120; //游戏总时间(秒)
+
+var _gameStoryInfo = "谁将激发真正的潜能？";
+var _bestScoreTitle = "潜能突破：";
+
+//++++++++++++立绘角色集合：
+var _showGirlGroups = new Array(
+	new Array('01','02'),
+	new Array('11','12'),
+	new Array('21','22'),
+	new Array('31'),
+	new Array('41','42'),
+	new Array('51','52'),
+	new Array('61','62')
+);
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+$(document).ready(function(){
+	//角色结尾文本：
+	$.jweGame._girlSpeechArr = new Array(
+		"三原 藍夏 \
+<br>「虽然明白你的心情，但请不要忘记自己的立场」",
+		
+		"大雲寺 エル \
+<br>「哈……真是难办……」",
+		
+		"五十崎 澪亜 \
+<br>「果然，突袭的话就能通过了呢」",
+		
+		"鋒之原 虎太狼 \
+<br>「如果惹到我的话，我会告诉我老爸的」",
+		
+		"城ケ崎 三月 \
+<br>「怎么了？难道说，对我一见钟情了？」",
+		
+		"楠川 鈴音 \
+<br>「啊，难道说你还是处男吗～？」",
+		
+		"高城 結菜 \
+<br>「我也觉得要尽快发现自己的P/A才行」"
+		
+	);
+	
+	$("#btnReset2")	.bind("click",function(){	location.reload();	});
+	
+	$.jweGame.gameStart();
+});
+</script>
+<script type="text/javascript" src="js/jwe.js"></script>
+<script type="text/javascript" src="js/jwe.core.js"></script>
+<script type="text/javascript" src="js/jwe.game.js"></script>
+<script type="text/javascript" src="js/jwe.ctrl.js"></script>
+<script type="text/javascript" src="js/jwe.arithmetic.js"></script>
+<script type="text/javascript" src="js/jwe.animate.js"></script>
+<script type="text/javascript" src="js/jwe.animate2.js"></script>
+
+</head>
+
+<body>
+    <textarea readonly="readonly" id="debugPanel"></textarea>
+	<div id="bg1"></div>
+	<div id="bg2"></div>
+    <div id="mask" class="mask"></div>
+    
+	<div id="txtTit" class="warn1"></div>
+	<div id="txtTit2" class="warn2"></div>
+
+	<div id="cartoonPanel" class="cartoonPanel"></div>
+	<div id="mmPanel"></div>
+
+	<div id="scorePanel"><div id="cLine" >总分：<span id="sumScore">0</span></div></div>
+    <table id="panelTb" class="panelTb" ></table>
+    <div id="timeBar"><div id="gameTime">?</div></div>
+    
+    
+    <div id="introPanel" class="cover"><div class="fd18">Released Version</div></div>
+ 	<div id="endPanel" class="cover">
+    	<h3 align="center"><a id="aSTAT">成绩统计</a></h3>
+    	<p>
+        	总分：<span id="finSumScore">0</span>
+        </p>
+        <p>
+            <div align="center" id="finUni"></div>
+            <div class='theEnd'></div>
+        </p>
+		<button id="endBtn1" class="aC2 happyBtn">拍摄私照</button>
+		&nbsp;&nbsp;
+		<button id="btnReset2" class="aC2">再来一次</button>
+		&nbsp;
+		<p style="margin-top: 20px;">分数越多解锁的惊喜照片就越多哦，另有彩蛋等您寻找</p>
+    </div>
+    
+    <div id="statPanel" class="cover"></div>
+</body>
+</html>

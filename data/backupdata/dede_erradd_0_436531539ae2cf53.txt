@@ -1,0 +1,7 @@
+INSERT INTO `dede_erradd` VALUES('1','0','0','','0','','','1439590255');
+INSERT INTO `dede_erradd` VALUES('2','0','0','','0','','','1439590260');
+INSERT INTO `dede_erradd` VALUES('3','0','0','','0','','','1439590260');
+INSERT INTO `dede_erradd` VALUES('4','0','0','','0','','','1439600602');
+INSERT INTO `dede_erradd` VALUES('5','0','0','','0','','','1439715326');
+INSERT INTO `dede_erradd` VALUES('6','0','0','','0','','','1439715330');
+INSERT INTO `dede_erradd` VALUES('7','0','0','','0','','','1439715331');
