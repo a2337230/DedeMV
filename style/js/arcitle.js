@@ -284,7 +284,7 @@ window.onload = function () {
     var imgBase64 = [];
     var imageSuffix = [];//图片后缀
     var zip = new JSZip();
-    zip.file("readme.txt", "案件详情资料\n");
+    zip.file("readme.txt", "文档内容\n");
     var img = zip.folder("images");
     for(var i=0;i<imgUrl.length;i++){
       var src = imgUrl[i];
