@@ -180,12 +180,14 @@ window.onload = function () {
           </ul>
         </div>
         <div class="load-box"><input type="file" /><button class="upload" type="button">自定义上传</button></div>
-        <button class="master">查看原图</button>
         <div class="btnBbox"><button class="game-close" type="button">关闭游戏</button></div>
       </div>
       <div class="picBox">
         <ul class="list">
         </ul>
+        <div class="show-img">
+          <img src="">
+        </div>
       </div>
     </div>
     `
@@ -206,25 +208,36 @@ window.onload = function () {
       seleBtn = seleBox.find('.text');
       let wraps = document.querySelector('.game-container');
       let closeGame = wraps.querySelector('.game-close');
-      let isFile = wraps.querySelector('.load-box input')
+      let isFile = wraps.querySelector('.load-box input');
       if (img) {
         gameImgUrl = img
       } else {
         gameImgUrl = document.querySelector('.swiper-slide-active img').src;
       }
+      $('.show-img img')[0].src = gameImgUrl
+      $('.show-img').show()
       init();
       wraps.style.display = 'flex';
       closeGame.addEventListener("click", () => {
-        console.log(111)
         wrap.removeChild($(".game-container")[0])
       })
       isFile.addEventListener('change', function(e) {
-        wrap.removeChild($(".game-container")[0])
-        var reader=new FileReader();
-        reader.onload=function(e){
-          gameInit(reader.result)
-        }  
-        reader.readAsDataURL(this.files[0])
+        // let blob = new Blob([e.target.files[0]]);
+        // 通过二进制文件创建url
+        // let url = window.URL.createObjectURL(blob);
+        var a = new FileReader();
+        a.readAsDataURL(e.target.files[0]);
+        a.onload = function () { 
+          gameImgUrl = a.result;
+          key = true;
+          $('.btn').text('开始');
+          cellOrder(origArr,num);
+          imgCell.off('mousemove mouseup mousedown mouseover mouseout');
+          seleBtn.attr('disabled',false);
+          $(imgCell).css('cursor','pointer');
+          render(num);
+          $('.show-img img')[0].src = gameImgUrl
+        }
       })
     }, 20)
   }
@@ -280,7 +293,7 @@ window.onload = function () {
   }
 
   // 批量打包
-  function packageImages(imgUrl, imgName, title){
+  function packageImages(imgUrl, imgName, title, callback){
     var imgBase64 = [];
     var imageSuffix = [];//图片后缀
     var zip = new JSZip();
@@ -309,6 +322,7 @@ window.onload = function () {
                 let downloadsAll = document.querySelectorAll('.downloadAll')
                 downloadsAll.forEach(titem => {
                   titem.innerText = '下载全套'
+                  callback && callback()
                   showMessage("恭喜哥哥已经下载全套图集,赶快打开欣赏吧~么么哒", 6000, 9)
                 })
             });
@@ -520,7 +534,45 @@ function cellChange(from, to,n) {
 
 function check() {
     if (origArr.toString() == randArr.toString()) {
-        alert('厉害了老铁')
+      key = true;
+      $('.btn').text('开始');
+      cellOrder(origArr,num);
+      imgCell.off('mousemove mouseup mousedown mouseover mouseout');
+      seleBtn.attr('disabled',false);
+      $(imgCell).css('cursor','pointer');
+      let wrap = document.documentElement
+      let game = document.createElement('div')
+      game.className = "ispass"
+      game.innerHTML = `
+      <div class="is-pass-wrap">
+        <p class="is-pass-close">×</p>
+        <button class="pass-download">下载全套图集</button>
+      </div>
+      `
+      wrap.appendChild(game)
+      $('.pass-download').click(function() {
+        if ($('.pass-download')[0].innerText == '下载中...') {
+          return
+        }
+        let imgs = document.querySelectorAll('.my-slide');
+        let title = document.querySelector('.arcitle-title');
+        let imgName = [];
+        let imgUrl = [];
+        imgs.forEach((item, index) => {
+          let img = item.querySelector('img');
+          let name = title.innerText + '(' + (index + 1) + ')';
+          imgName.push(name);
+          imgUrl.push(img.src);
+        })
+        $('.pass-download')[0].innerText = '下载中...';
+        packageImages(imgUrl, imgName, title.innerText, function() {
+          $('.pass-download')[0].innerText = '下载全套图集';
+        });
+      })
+      $('.is-pass-close').click(function() {
+        wrap.removeChild(game)
+      })
+      // alert('厉害了老铁')
     }
 } //检查是否正确
 
