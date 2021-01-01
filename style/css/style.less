@@ -647,12 +647,13 @@
       border-radius: 10px;
       .code-img {
         position: relative;
-        img {
+        .isGirl {
           width: 100%;
         }
         .iscode {
-          width: 100px;
-          height: 100px;
+          border-radius: 10px;
+          width: 150px;
+          height: 150px;
           position: absolute;
           right: 10px;
           bottom: 10px;
@@ -757,6 +758,70 @@
         }
       }
     }
+  }
+}
+.is-download {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 0 #CECFD1;
+  padding: 20px;
+  h3 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  input {
+    width: 100%;
+    margin: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 12px;
+    color: #f84f7a;
+    line-height: 30px;
+    height: 30px;
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 0 #CECFD1;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+    margin: 0 5px;
+    &:active {
+      box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+    }
+  }
+  span {
+    font-size: 12px;
+    color: #f84f7a;
+    margin-top: 20px;
   }
 }
 .pren-tab {

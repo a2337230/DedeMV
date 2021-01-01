@@ -100,27 +100,72 @@ window.onload = function () {
     let name = $('.arcitle-title').html() + '(' + mySwiper.activeIndex + ').jpg';
     download($('.swiper-slide-active img').attr('src'), name);
   })
+  document.documentElement.onclick = function() {
+    let down = document.querySelector('.is-download')
+    if (down) {
+      this.removeChild(down)
+    }
+  }
+  // 是否可下载
+  var isDown = true
   downloadsAll.forEach(item => {
-    item.onclick = function () {
-      if (item.innerText == '下载中...') {
+    item.onclick = function (e) {
+      let down = document.querySelector('.is-download')
+      if (down) {
+        document.documentElement.removeChild(down)
+      }
+      e.stopPropagation()
+      if (!isDown) {
         return
       }
-      let imgs = document.querySelectorAll('.my-slide');
-      let title = document.querySelector('.arcitle-title');
-      let imgName = [];
-      let imgUrl = [];
-      imgs.forEach((item, index) => {
-        let img = item.querySelector('img');
-        let name = title.innerText + '(' + (index + 1) + ')';
-        imgName.push(name);
-        imgUrl.push(img.src);
-      })
-      // 更改文案
-      downloadsAll.forEach(titem => {
-        titem.innerText = '下载中...';
-        showMessage("图片正在批量压缩中,哥哥不要着急哦~么么哒", 6000, 9)
-      })
-      packageImages(imgUrl, imgName, title.innerText);
+      let wrap = document.documentElement
+      let imgWrap = document.createElement('div')
+      imgWrap.className = "is-download"
+      imgWrap.innerHTML = `
+        <h3>请输入下载密码</h3>
+        <input type="text" maxlength="6" placeholder="请输入下载密码" class="is-password">
+        <p class="is-psd-error"></p>
+        <button>下载</button>
+        <span>温馨提示：下载密码可扫描右侧关注公众号，回复下载密码获得。或者点击左侧美女小游戏通关一次即可下载全套图集</span>
+      `
+      let l = item.getBoundingClientRect().left - 50
+      let t = item.getBoundingClientRect().top + 50 + $(document).scrollTop()
+      imgWrap.style.left = l + 'px'
+      imgWrap.style.top = t + 'px'
+      document.documentElement.appendChild(imgWrap)
+      $('.is-download .is-password')[0].oninput = function () {
+        $('.is-psd-error').html("")
+      }
+      imgWrap.onclick = function (e) {
+        e.stopPropagation()
+        if (e.target.innerText == '下载') {
+          if (!$('.is-password')[0].value) {
+            $('.is-psd-error').html("请输入下载密码！")
+          } else if ($('.is-password')[0].value !== 'lookmv') {
+            $('.is-psd-error').html("下载密码错误！")
+          } else {
+            let imgs = document.querySelectorAll('.my-slide');
+            let title = document.querySelector('.arcitle-title');
+            let imgName = [];
+            let imgUrl = [];
+            imgs.forEach((item, index) => {
+              let img = item.querySelector('img');
+              let name = title.innerText + '(' + (index + 1) + ')';
+              imgName.push(name);
+              imgUrl.push(img.src);
+            })
+            e.target.innerText = '下载中...';
+            packageImages(imgUrl, imgName, title.innerText, function(e) {
+              $('.is-download button')[0].innerText = '下载完成';
+              downloadsAll.forEach(titem => {
+                titem.innerText = '下载成功';
+                showMessage("妹纸的图集已为您下载完成哦~", 6000, 9)
+              })
+              isDown = false
+            });
+          }
+        }
+      }
     }
   })
   $('.big-img').click(() => {
@@ -297,7 +342,7 @@ window.onload = function () {
     var imgBase64 = [];
     var imageSuffix = [];//图片后缀
     var zip = new JSZip();
-    zip.file("readme.txt", "文档内容\n");
+    zip.file("本站域名www.lookmeinv.com.txt", "http://www.lookmeinv.com");
     zip.file("点击看美女.html", `<script>
     window.location.href = 'http://www.lookmeinv.com'
     </script>`);
@@ -554,7 +599,7 @@ function check() {
       `
       wrap.appendChild(game)
       $('.pass-download').click(function() {
-        if ($('.pass-download')[0].innerText == '下载中...') {
+        if ($('.pass-download')[0].innerText == '下载中...' || $('.pass-download')[0].innerText == '下载成功') {
           return
         }
         let imgs = document.querySelectorAll('.my-slide');
@@ -569,7 +614,7 @@ function check() {
         })
         $('.pass-download')[0].innerText = '下载中...';
         packageImages(imgUrl, imgName, title.innerText, function() {
-          $('.pass-download')[0].innerText = '下载全套图集';
+          $('.pass-download')[0].innerText = '下载成功';
         });
       })
       $('.is-pass-close').click(function() {
