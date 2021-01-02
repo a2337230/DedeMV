@@ -1,4 +1,13 @@
 <header class="header">
+  <div class="header-hint">
+    <div class="hint-wrap">
+      <p>看美图-每日分享美女写真-各种女神精品照片-免费下载美女套图</p>
+      <div class="right">
+        <a href="http://127.0.0.1/tags.html">标签云</a>|
+        <a href="JavaScript:void(0);">移动端</a>
+      </div>
+    </div>
+  </div>
   <!-- logo -->
   <div class="header-container">
     <div class="logo">
@@ -17,15 +26,16 @@
       <h1>{dede:global.cfg_webname/}</h1>
     </div>
     <ul class="nav">
-      <li {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='current'":@me="";{/dede:field}><a href="{dede:global.cfg_basehost/}">首页</a></li>
-      {dede:channel type='top' row='6' currentstyle="<li class='current'><a  href='~typelink~' >~typename~</a> </li>" }
+      <li {dede:field name=typeid runphp="yes" }(@me=="" )? @me=" class='current'" :@me="" ;{/dede:field}><a
+          href="{dede:global.cfg_basehost/}">首页</a></li>
+      {dede:channel type='top' row='6' currentstyle="<li class='current'><a href='~typelink~'>~typename~</a> </li>" }
       <li><a href="[field:typelink/]">[field:typename/]</a></li>
       {/dede:channel}
     </ul>
     <div class="search">
       <form action="/plus/search.php" name="formsearch">
         <input type="text" placeholder="请输入你最感兴趣的内容..." name="q">
-        <input type="hidden" value="titlekeyword" name="searchtype" >
+        <input type="hidden" value="titlekeyword" name="searchtype">
         <button type="submit">搜索</button>
       </form>
     </div>

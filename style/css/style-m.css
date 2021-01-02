@@ -11,6 +11,9 @@
   top: 0;
   z-index: 99;
 }
+.header .header-hint {
+  display: none;
+}
 .header .header-container {
   width: 100vw;
   height: auto;
