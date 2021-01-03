@@ -1,196 +1,164 @@
-<!--This is IE DTD patch , Don't delete this line.-->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
-<title><?php echo $cfg_webname; ?>-<?php echo $cfg_softname." ".$cfg_version; ?></title>
-<link href="css/frame.css" rel="stylesheet" type="text/css" />
-<script src="../include/js/jquery/jquery.js" language="javascript" type="text/javascript"></script>
-<script src="js/frame.js" language="javascript" type="text/javascript"></script>
-<link href="images/style<?php echo $cfg_admin_skin;?>/style.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-#skinlist {
-    display: block;
-    height: 11px;
-	margin-top: 10px;
-    overflow: hidden;
-    width: 86px;
-}
-#skin div {
-    float: left;
-}
-#skin li {
-    cursor: pointer;
-    float: left;
-    height: 11px;
-    width: 14px;
-}
-#def div, #s1 div, #s2 div, #s3 div, #s4 div{
-    background-image: url("images/skinbutton.png");
-    background-repeat: no-repeat;
-}
-#s1 div {
-    background-position: 0 0px;
-}
-#s2 div {
-    background-position: 0 -11px;
-}
-#s3 div {
-    background-position: 0 -22px;
-}
-#s4 div {
-    background-position: 0 -33px;
-}
-#s1 div.sel {
-    background: url("images/skinbutton.png") no-repeat scroll -14px top transparent;
-}
-#s2 div.sel {
-    background: url("images/skinbutton.png") no-repeat scroll -14px -11px transparent;
-}
-#s3 div.sel {
-    background: url("images/skinbutton.png") no-repeat scroll -14px -22px transparent;
-}
-#s4 div.sel {
-    background: url("images/skinbutton.png") no-repeat scroll -14px -33px transparent;
-}
-</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title><?php echo $cfg_webname; ?>网站管理</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="css/mq-hAdmin.css">
 </head>
-<body class="showmenu">
-<div class="pagemask"></div>
-<iframe class="iframemask"></iframe>
-<div class="allmenu">
-  <div class="allmenu-box">
-    <?php
-	echo $mapstring;
-?>
-    <br style='clear:both' />
-  </div>
-</div>
-<div class="head">
-  <div class="top">
-    <div class="top_logo"> <img src="images/style<?php echo $cfg_admin_skin;?>/admin_top_logo.gif" width="200" height="37" alt="DedeCms Logo" title="Welcome use DedeCms" id="topdedelogo" /> </div>
-    <div class="top_link">
-      <ul>
-        <li class="welcome">您好：<?php echo $cuserLogin->getUserName(); ?> ，欢迎使用DedeCMS！</li>
-        <li><a href="index_menu.php" target="menu">主菜单</a></li>
-        <li><a href="#" onclick="JumpFrame('catalog_menu.php','public_guide.php');">内容发布</a></li>
-        <li><a href="#" onclick="JumpFrame('index_menu.php','content_list.php');">内容维护</a></li>
-        <li><a href="#" onclick="JumpFrame('index_menu.php','index_body.php');">系统主页</a></li>
-        <li><a href="../index.php?upcache=1" target="_blank">网站主页</a></li>
-        <li><a href="../member" target="_blank">会员中心</a></li>
-        <li><a href="exit.php" target="_top">注销</a></li>
-      </ul>
-      <div class="quick"> <a href="#" class="ac_qucikmenu" id="ac_qucikmenu">快捷方式</a> <a href="#" class="ac_qucikadd" id="ac_qucikadd">
-        <!--ADD-->
-        </a> </div>
-    </div>
-  </div>
-  <div class="topnav">
-    <div class="menuact"> <a href="#" id="togglemenu">隐藏菜单</a>
-      <?php
-			if($cuserLogin->getUserType() >= 10) echo '<a href="#" id="allmenu">功能地图</a>';
-			?>
-    </div>
-    <div id="skin">
-        <div>
-          <ul id="skinlist">
-            <li id="s1">
-              <div<?php echo $cfg_admin_skin == 1? ' class="sel"' : '';?>><img alt="织梦绿" src="images/blank.gif"></div>
-            </li>
-            <li id="s2">
-              <div<?php echo $cfg_admin_skin == 2? ' class="sel"' : '';?>><img alt="淡蓝" src="images/blank.gif"></div>
-            </li>
-            <li id="s3">
-              <div<?php echo $cfg_admin_skin == 3? ' class="sel"' : '';?>><img alt="咖啡" src="images/blank.gif"></div>
-            </li>
-            <li id="s4">
-              <div<?php echo $cfg_admin_skin == 4? ' class="sel"' : '';?>><img alt="水墨" src="images/blank.gif"></div>
-            </li>
+<body class="fixed-sidebar full-height-layout gray-bg animated fadeIn" style="overflow:hidden">
+<div id="wrapper"> 
+  <!--左侧导航开始-->
+  <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="nav-close"><i class="fa fa-times-circle"></i> </div>
+    <div class="sidebar-collapse">
+      <ul class="nav" id="side-menu">
+        <li class="nav-header">
+          <div class="dropdown profile-element"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span class="clear"> <span class="block m-t-xs" style="font-size:20px;"> <strong class="font-bold">Admin</strong> </span> </span> </a> </div>
+          <div class="logo-element">A </div>
+        </li>
+        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs"> <span class="ng-scope"> 基本管理 </span> </li>
+        <li> <a class="J_menuItem" href="index_body.php"> <i class="fa fa-dashboard fa-fw"> </i> <span class="nav-label"> 管理首页 </span> </a> </li>
+        <li> <a class="J_menuItem" href="catalog_main.php"> <i class="fa fa-th-list fa-fw"> </i> <span class="nav-label"> 栏目导航 </span> </a> </li>
+        <li> <a class="J_menuItem" href="sys_info.php"> <i class="fa fa-cog fa-fw"> </i> <span class="nav-label"> 系统设置 </span> </a> </li>
+        <li> <a href="#"> <i class="fa fa-user fa-fw"> </i> <span class="nav-label"> 管理员 </span> <span class="fa arrow"></span> </a>
+          <ul class="nav nav-second-level">
+            <li> <a class="J_menuItem" href="sys_admin_user.php"> <span class="nav-label"> 管理员管理 </span> </a> </li>
+            <li> <a class="J_menuItem" href="sys_group.php"> <span class="nav-label"> 用户组 </span> </a> </li>
           </ul>
+        </li>
+        <li> <a href="#"> <i class="fa fa-paint-brush fa-fw"> </i> <span class="nav-label"> 生成页面 </span> <span class="fa arrow"></span> </a>
+          <ul class="nav nav-second-level">
+            <li> <a class="J_menuItem" href="makehtml_all.php"> <span class="nav-label"> 一键更新网站 </span> </a> </li>
+            <li> <a class="J_menuItem" href="sys_cache_up.php"> <span class="nav-label"> 更新缓存 </span> </a> </li>
+            <li> <a class="J_menuItem" href="makehtml_homepage.php"> <span class="nav-label"> 主页HTML </span> </a> </li>
+            <li> <a class="J_menuItem" href="makehtml_list.php"> <span class="nav-label"> 栏目HTML </span> </a> </li>
+            <li> <a class="J_menuItem" href="makehtml_archives.php"> <span class="nav-label"> 文档HTML </span> </a> </li>
+          </ul>
+        </li>
+        <li class="line dk"></li>
+        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs"> <span class="ng-scope"> 内容维护 </span> </li>
+        <li> <a href="#"> <i class="fa fa-bolt fa-fw"> </i> <span class="nav-label"> 内容管理 </span> <span class="fa arrow"></span> </a>
+          <ul class="nav nav-second-level">
+            <?php                    
+		                    //载入可发布频道
+		                    $addset = '';
+		                    //检测可用的内容模型
+		                    if($cfg_admin_channel = 'array' && count($admin_catalogs) >
+					 0)
+		                    {
+		                        $admin_catalog = join(',', $admin_catalogs);
+		                        $dsql->SetQuery(" SELECT channeltype FROM `#@__arctype` WHERE id IN({$admin_catalog}) GROUP BY channeltype ");
+		                    }
+		                    else
+		                    {
+		                        $dsql->SetQuery(" SELECT channeltype FROM `#@__arctype` GROUP BY channeltype ");
+		                    }
+		                    $dsql->Execute();
+		                    $candoChannel = '';
+		                    while($row = $dsql->GetObject())
+		                    {
+		                        $candoChannel .= ($candoChannel=='' ? $row->channeltype : ','.$row->channeltype);
+		                    }
+		                    if(empty($candoChannel)) $candoChannel = 1;
+		                    $dsql->SetQuery("SELECT id,typename,addcon,mancon FROM `#@__channeltype` WHERE id IN({$candoChannel}) AND id
+					<>-1 AND isshow=1 ORDER BY id ASC");
+		                    $dsql->Execute();
+		                    while($row = $dsql->GetObject())
+		                    {
+		                        $addset .="
+					<li><a class='J_menuItem' href='{$row->mancon}?channelid={$row->id}'><span class='nav-label'>{$row->typename}</span></a></li>
+					";
+		                    }       
+		                    echo $addset;
+		                ?>
+          </ul>
+        </li>
+        <li> <a class="J_menuItem" href="diy_main.php"> <i class="fa fa-file-excel-o fa-fw"> </i> <span class="nav-label"> 自定义表单 </span> </a> </li>
+        <li> <a href="#"> <i class="fa fa-folder-open-o fa-fw"> </i> <span class="nav-label"> 文章管理 </span> <span class="fa arrow"></span> </a>
+          <ul class="nav nav-second-level">
+            <li> <a class="J_menuItem" href="content_list.php"> <span class="nav-label"> 所有文章 </span> </a> </li>
+            <li> <a class="J_menuItem" href="content_list.php?arcrank=-1"> <span class="nav-label"> 等待审核的文章 </span> </a> </li>
+            <li> <a class="J_menuItem" href="recycling.php"> <span class="nav-label"> 内容回收站 </span> </a> </li>
+          </ul>
+        </li>
+        <li> <a class="J_menuItem" href="mychannel_main.php"> <i class="fa fa-send-o fa-fw"> </i> <span class="nav-label"> 内容模型管理 </span> </a> </li>
+        <li class="line dk"></li>
+        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs"> <span class="ng-scope"> 高级设置 </span> </li>
+        <li> <a class="J_menuItem" href="stepselect_main.php"> <i class="fa fa-lightbulb-o fa-fw"> </i> <span class="nav-label"> 联动管理 </span> </a> </li>
+        <li> <a class="J_menuItem" href="friendlink_main.php"> <i class="fa fa-retweet fa-fw"> </i> <span class="nav-label"> 友情链接 </span> </a> </li>
+        <li> <a class="J_menuItem" href="ad_main.php"> <i class="fa fa-cube fa-fw"> </i> <span class="nav-label"> 广告管理 </span> </a> </li>
+        <li> <a href="#"> <i class="fa fa-shield fa-fw"> </i> <span class="nav-label"> 安全设置 </span> <span class="fa arrow"></span> </a>
+          <ul class="nav nav-second-level">
+            <li> <a class="J_menuItem" href="article_string_mix.php"> <span class="nav-label"> 防采集 </span> </a> </li>
+            <li> <a class="J_menuItem" href="sys_safetest.php"> <span class="nav-label"> 病毒扫描 </span> </a> </li>
+            <li> <a class="J_menuItem" href="sys_repair.php"> <span class="nav-label"> 错误修复 </span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="#"> <i class="fa fa-share-alt fa-fw"> </i> <span class="nav-label"> SEO设置 </span> <span class="fa arrow"></span> </a>
+          <ul class="nav nav-second-level">
+            <li> <a class="J_menuItem" href="article_test_same.php"> <span class="nav-label"> 重复文档检测 </span> </a> </li>
+            <li> <a class="J_menuItem" href="tags_main.php"> <span class="nav-label"> TAG管理 </span> </a> </li>
+            <li> <a class="J_menuItem" href="article_keywords_main.php"> <span class="nav-label"> 文档关键字 </span> </a> </li>
+            <li> <a class="J_menuItem" href="baidusitemap_main.php"> <span class="nav-label"> 百度结构化 </span> </a> </li>
+            <li> <a class="J_menuItem" href="sys_info_mark.php"> <span class="nav-label"> 图片水印 </span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="#"> <i class="fa fa-comments-o fa-fw"> </i> <span class="nav-label"> 畅言评论 </span> <span class="fa arrow"></span> </a>
+          <ul class="nav nav-second-level">
+            <li> <a class="J_menuItem" href="changyan_main.php"> <span class="nav-label"> 畅言模块 </span> </a> </li>
+            <li> <a class="J_menuItem" href="changyan_main.php?dopost=manage"> <span class="nav-label"> 评论管理 </span> </a> </li>
+            <li> <a class="J_menuItem" href="changyan_main.php?dopost=stat"> <span class="nav-label"> 数据统计 </span> </a> </li>
+            <li> <a class="J_menuItem" href="changyan_main.php?dopost=import"> <span class="nav-label"> 导入导出 </span> </a> </li>
+            <li> <a class="J_menuItem" href="changyan_main.php?dopost=setting"> <span class="nav-label"> 畅言设置 </span> </a> </li>
+          </ul>
+        </li>
+        <li class="line dk"></li>
+        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs"> <span class="ng-scope"> 其他功能 </span> </li>
+        <li> <a href="../index.php?upcache=1" target="_blank"> <i class="fa fa-home fa-fw"> </i> <span class="nav-label"> 网站主页 </span> </a> </li>
+        <li> <a href="exit.php" target="_blank"> <i class="fa fa-sign-out fa-fw"> </i> <span class="nav-label"> 注销登录 </span> </a> </li>
+        <li class="line dk"></li>
+      </ul>
+    </div>
+  </nav>
+  <!--左侧导航结束--> 
+  <!--右侧部分开始-->
+  <div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="row border-bottom">
+      <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-danger" href="#"><i class="fa fa-bars"></i> </a>
+          <form role="search" class="navbar-form-custom" action="action_search.php" target="J_iframe" method="post">
+            <div class="form-group">
+              <input type="text" placeholder="功能搜索…" class="form-control" name="keyword" id="top-search">
+            </div>
+          </form>
         </div>
+      </nav>
+    </div>
+    <div class="row J_mainContent" id="content-main" style="-webkit-overflow-scrolling:touch;overflow:auto!important;">
+      <iframe id="J_iframe" name="J_iframe" width="100%" src="index_body.php" data-id="index_body.php" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+  <!--右侧部分结束--> 
+</div>
 
-    </div>
-    <div class="nav" id="nav"> </div>
-    <div class="sysmsg">
-      <h3>滚动消息:</h3>
-      <div class="scroll">
-        <form action="action_search.php" target="main" method="post">
-          <input name="keyword" type="text" value="功能搜索" onfocus="if(this.value=='功能搜索'){this.value='';}"  onblur="if(this.value==''){this.value='功能搜索';}" class="allsearch" style="width:150px;"/>
-          <input name="" type="submit" value="搜索" class="np"/>
-          <a href='http://bbs.dedecms.com' target='_blank'>官方论坛</a> <a href='http://help.dedecms.com' target='_blank'>在线帮助</a>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="left">
-  <div class="menu" id="menu">
-    <iframe src="index_menu.php" id="menufra" name="menu" frameborder="0"></iframe>
-  </div>
-</div>
-<div class="right">
-  <div class="main">
-    <iframe id="main" name="main" frameborder="0" src="index_body.php"></iframe>
-  </div>
-  <!--<div id="help"><span id="content"><a href="#">栏目管理操作使用说明</a></span></div>-->
-</div>
-<div class="qucikmenu" id="qucikmenu">
-  <ul>
-    <?php
-      $dtp = new DedeTagparse();
-      $dtp->SetNameSpace('menu','<','>');
-      $dtp->LoadTemplet($myIcoFile);
-      if(is_array($dtp->CTags))
-      {
-         foreach($dtp->CTags as $ctag)
-         {
-         		$title = $ctag->GetAtt('title');
-         		$ico = $ctag->GetAtt('ico');
-         		$link = $ctag->GetAtt('link');
-         		echo "<li><a href='{$link}' target='main'>{$title}</a></li>\r\n";
-      		}
-			}
-	 ?>
-  </ul>
-</div>
-<script language="javascript">
-function JumpFrame(url1, url2){
-    jQuery('#menufra').get(0).src = url1;
-    jQuery('#main').get(0).src = url2;
-}
-(function($)
-{
- 	$("#skinlist>li").click(function()
-	 {
-		 var adminskin = $(this).index() + 1;
-		 var csshref = "images/style"+adminskin+"/style.css";
-		 $("#skinlist>li").each(function(){$(this).children('div').attr('class', '')});
-		 $("#topdedelogo").attr('src', 'images/style'+adminskin+'/admin_top_logo.gif')
-		 $('link').each(function()
-		 {
-			 if($(this).attr('href').match(/style.css$/))
-			 {
-				 $(this).attr('href',csshref);
-			 }
-		 });
-		 $(this).children('div').attr('class', 'sel');
-		 $(window.frames["menu"].document).find("link").each(function()
-		 {
-			 if($(this).attr('href').match(/style.css$/))
-			 {
-				 $(this).attr('href',csshref);
-			 }
-		 });
-		 $(window.frames["main"].document).find("link").each(function()
-		 {
-			 if($(this).attr('href').match(/style.css$/))
-			 {
-				 $(this).attr('href',csshref);
-			 }
-		 });
-		 $.get('index_body.php?dopost=setskin&cskin='+adminskin);
-	 });
-})(jQuery);
-</script>
+<!--[if lt IE 9]>
+	<script src="http://cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+	<![endif]--> 
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> 
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="http://cdn.bootcss.com/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script> 
+<script src="http://cdn.bootcss.com/metisMenu/2.7.0/metisMenu.js"></script> 
+<script src="js/hAdmin.js"></script> 
+<script type="text/javascript" src="js/index.js"></script> 
+<script type="text/javascript" src="js/iframe.js"></script> 
+<script type="text/javascript">
+		startInit('J_iframe', 560);
+	</script>
 </body>
 </html>
